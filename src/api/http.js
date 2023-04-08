@@ -15,6 +15,7 @@ const http = axios.create({
  * @param {*} config
  * @returns {String} 数据签名
  */
+// * TODO: 可以单独放在一个文件中,然后打包的时候混淆,这样就没法在浏览器中直接获得私钥
 export const makeSignWithConfig = config => {
   const { baseURL, url, params, method, data } = config;
   const args = { url: `${baseURL}${url}`, method };
