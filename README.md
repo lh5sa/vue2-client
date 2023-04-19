@@ -1,24 +1,18 @@
-# vue-egg-admin
+## 介绍
 
-## Project setup
-```
-npm install
-```
+纸上得来终觉浅, 所以这是个学习用的的小 demo 而已
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 快速开始
 
-### Compiles and minifies for production
 ```
-npm run build
+git clone https://github.com/lh5sa/vue2-client
+cd vue2-client
+npm i
+npm run dev
+
+open http://localhost:8080
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## 关于服务端
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://github.com/lh5sa/eggjs-server
