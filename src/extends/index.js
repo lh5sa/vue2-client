@@ -3,12 +3,8 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 import Vue from "vue";
 import * as filters from "./filters";
-// import * as directives from "./directives";
 
-Object.keys(filters).forEach(key => {
+// 全局过滤器
+Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key]);
 });
-
-// Object.keys(directives).forEach(key => {
-//   Vue.directive(key, directives[key]);
-// });

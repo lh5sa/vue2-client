@@ -1,12 +1,13 @@
 import axios from "axios";
 import store from "@/store";
+import config from "@/config";
 import { Message } from "element-ui";
 import { JSEncrypt } from "jsencrypt";
 import CryptoJS from "crypto-js";
 
 const http = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API_URL || "",
-  timeout: 3000
+  baseURL: config.baseURL,
+  timeout: 3000,
 });
 
 /**
@@ -16,7 +17,7 @@ const http = axios.create({
  * @returns {String} 数据签名
  */
 // * TODO: 可以单独放在一个文件中,然后打包的时候混淆,这样就没法在浏览器中直接获得私钥
-export const makeSignWithConfig = config => {
+export const makeSignWithConfig = (config) => {
   const { baseURL, url, params, method, data } = config;
   const args = { url: `${baseURL}${url}`, method };
   if (data) args.data = data;
@@ -48,7 +49,7 @@ MrbS/QSAWgxBr7LUhgelbYYAhGujA6LjOzL+m1NyS4k=
 };
 
 // 全局请求拦截器
-http.interceptors.request.use(config => {
+http.interceptors.request.use((config) => {
   const { authUser } = store.state.login;
   if (authUser && authUser.token) {
     config.headers["User-Token"] = authUser.token;
@@ -60,8 +61,8 @@ http.interceptors.request.use(config => {
 
 // 全局响应拦截器
 http.interceptors.response.use(
-  response => response.data,
-  err => Message.error(err.response.data.msg || "响应报错了")
+  (response) => response.data,
+  (err) => Message.error(err.response.data.msg || "响应报错了")
 );
 
 export default http;

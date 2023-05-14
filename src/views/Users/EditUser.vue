@@ -23,6 +23,7 @@
 
 <script>
 import { updateUserInfo } from "@/api/index";
+import config from "@/config"
 import UploadCropper from "./UploadCropper";
 
 export default {
@@ -34,7 +35,7 @@ export default {
   computed: {
     // 头像上传地址
     avatarUploadURL() {
-      return process.env.VUE_APP_AVATAR_UPLOAD_URL || "";
+      return config.uploadURL;
     }
   },
   methods: {

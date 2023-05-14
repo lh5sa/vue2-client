@@ -31,13 +31,14 @@
 
 <script>
 import { createUser } from "@/api/index";
+import config from "@/config"
 import UploadCropper from "./UploadCropper.vue";
 export default {
   components: { UploadCropper },
   computed: {
     // 头像上传地址
     avatarUploadURL() {
-      return process.env.VUE_APP_AVATAR_UPLOAD_URL || "";
+      return config.uploadURL;
     }
   },
   data() {

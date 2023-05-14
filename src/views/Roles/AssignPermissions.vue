@@ -1,13 +1,7 @@
 <template>
   <el-dialog title="提示" :visible.sync="show" :close-on-press-escape="false" :close-on-click-modal="false">
-    <el-tree
-      node-key="id"
-      ref="tree"
-      :data="permissionTree"
-      :default-expand-all="true"
-      :show-checkbox="true"
-      :props="treeProps"
-    >
+    <el-tree node-key="id" ref="tree" :data="permissionTree" :default-expand-all="true" :show-checkbox="true"
+      :props="treeProps">
       <div class="node-item-wrapper" slot-scope="scope">
         <div>{{ scope.node.label }}</div>
         <div v-if="scope.data.pid === 0">
